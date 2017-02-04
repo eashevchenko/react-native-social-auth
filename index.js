@@ -11,7 +11,7 @@ const _app = {
   name: '',
 }
 
-const STORAGE_KEY = '';
+const STORAGE_KEY = 'FBAuth';
 
 export default class SocialAuth {
   static setFacebookApp(app) {

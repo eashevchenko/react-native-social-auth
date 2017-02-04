@@ -1,14 +1,17 @@
 import {
   NativeModules,
   Platform,
+  AsyncStorage
  } from 'react-native';
- 
+
 const { RNSocialAuthManager } = NativeModules;
 
 const _app = {
   id: '',
   name: '',
 }
+
+const STORAGE_KEY = '';
 
 export default class SocialAuth {
   static setFacebookApp(app) {
@@ -37,6 +40,16 @@ export default class SocialAuth {
           }
         });
     })
+  }
+
+  static saveIntoFacebookSystemAccount(creadentials) {
+    AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(creadentials), () => {
+      console.log('saved');
+    });
+  }
+
+  static loadFacebookSystemAccount() {
+    return AsyncStorage.getItem(STORAGE_KEY);
   }
 
   static getTwitterSystemAccounts() {

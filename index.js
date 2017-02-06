@@ -52,6 +52,10 @@ export default class SocialAuth {
     return AsyncStorage.getItem(STORAGE_KEY);
   }
 
+  static removeFacebookSystemAccount() {
+    return AsyncStorage.removeItem(STORAGE_KEY);
+  }
+
   static getTwitterSystemAccounts() {
     if (Platform.OS === 'android') {
       return Promise.reject({
